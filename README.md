@@ -1,5 +1,8 @@
 # Selenium-Grabify-Mass-Mailer
-Automated Chrome Selenium Grabify link creator for Email List
+Automated Chrome Selenium Grabify link creator for Email List...
+1. Must have a gmail!
+2. Must Have Selenium!
+3. Must have an email list!
 
 ## Download Selenium
 ```pip install selenium```

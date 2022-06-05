@@ -1,4 +1,3 @@
-# Python code to send mail
 import smtplib
 import io
 import time
@@ -13,6 +12,13 @@ from selenium import webdriver
 from random import seed
 from random import randint
 
+sender_mail = input("What is your gmail?\n")
+USERNAME = sender_mail
+PASSWORD = input("What is your Password?\n")
+receivers_mail = input("What is the email list path?\n")
+grab_user = input("What is your grabify username?\n")
+grab_pass = input("What is your grabify password?\n")
+grab_link = input("Paste in your link to be converted: ")
 def grabify(grab_user, grab_pass, grab_link):
     driver = webdriver.Chrome(
         "C:\\Users\\lavon\\Desktop\\Chrome\\chromedriver")
@@ -87,17 +93,16 @@ def email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text):
 
     except Exception:
         print("Mail delivery failed.")
+def loop():
+    try:
+        text = grabify(grab_user, grab_pass, grab_link)
+        email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text)
+    except Exception:
+        text = grabify(grab_user, grab_pass, grab_link)
+        email_setup(USERNAME,PASSWORD,sender_mail,receivers_mail, text)
+        
 
-def email_sender():
-    sender_mail = input("What is your gmail?\n")
-    USERNAME = sender_mail
-    PASSWORD = input("What is your Password?\n")
-    receivers_mail = input("What is the email list path?\n")
-    grab_user = input("What is your grabify username?\n")
-    grab_pass = input("What is your grabify password?\n")
-    grab_link = input("Paste in your link to be converted: ")
-    text = grabify(grab_user, grab_pass, grab_link)
-    email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text)
-
-
-email_sender()
+try:
+    loop()
+except Exception:
+    loop()

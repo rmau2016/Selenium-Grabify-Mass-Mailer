@@ -1,8 +1,9 @@
 # Selenium-Grabify-Mass-Mailer
 Automated Chrome Selenium Grabify link creator for Email List
 
-## Download and Upgrade Selenium
+## Download Selenium
 ```pip install selenium```
+## Upgrade
 ```pip install selenium -U```
 
 ## Download the Chrome Driver and place the location in the code

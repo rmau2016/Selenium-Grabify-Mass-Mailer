@@ -16,3 +16,6 @@ https://chromedriver.chromium.org/downloads
 ## Create a grabify account
 The program must be supplied the credentials
 Supply all details including the email list.
+
+## Will loop over captchas on grabify
+I tested this program for a while and I found that there are captchas on grabify, so I decided to deal with the problem by instituting a try loop in case of selenium failure.

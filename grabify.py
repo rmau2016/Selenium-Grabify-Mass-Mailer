@@ -12,9 +12,9 @@ from selenium import webdriver
 from random import seed
 from random import randint
 
-sender_mail = input("What is your gmail?\n")
+sender_mail = input("What is your Yahoo Account?\n")
 USERNAME = sender_mail
-PASSWORD = input("What is your Password?\n")
+PASSWORD = input("What is your Generated App Password?\n")
 receivers_mail = input("What is the email list path?\n")
 grab_user = input("What is your grabify username?\n")
 grab_pass = input("What is your grabify password?\n")
@@ -82,7 +82,7 @@ def email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text):
             # Open PDF file in binary mode
             # The file is in the directory same as where you run your Python script code
 
-            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s = smtplib.SMTP('smtp.mail.yahoo.com', 587)
             s.starttls()
             s.login(USERNAME, PASSWORD)
             text = message.as_string()

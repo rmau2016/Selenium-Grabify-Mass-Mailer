@@ -9,7 +9,8 @@ Automated Chrome Selenium Grabify link creator for Email List...
 ```pip install selenium```
 ## Upgrade
 ```pip install selenium -U```
-
+## Download Chrome Undetectable browser extension
+```pip install undetected-chromedriver```
 ## Download the Chrome Driver and place the location in the code
 https://chromedriver.chromium.org/downloads
 

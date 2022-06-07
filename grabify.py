@@ -11,17 +11,18 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium import webdriver
 from random import seed
 from random import randint
+import undetected_chromedriver as uc
 
-sender_mail = input("What is your Yahoo Account?\n")
+sender_mail = input("What is your Mail Account?\n")
 USERNAME = sender_mail
-PASSWORD = input("What is your Generated App Password?\n")
+PASSWORD = input("What is your Password?\n")
 receivers_mail = input("What is the email list path?\n")
 grab_user = input("What is your grabify username?\n")
 grab_pass = input("What is your grabify password?\n")
 grab_link = input("Paste in your link to be converted: ")
+
 def grabify(grab_user, grab_pass, grab_link):
-    driver = webdriver.Chrome(
-        "C:\\Users\\lavon\\Desktop\\Chrome\\chromedriver")
+    driver = uc.Chrome(use_subprocess=True)
     driver.implicitly_wait(0.6)
     driver.get("https://grabify.link/login")
     time.sleep(getRandomTime())
@@ -32,8 +33,10 @@ def grabify(grab_user, grab_pass, grab_link):
     driver.find_element_by_xpath("//button[@type='submit']").click()
     driver.find_element_by_xpath("//a[normalize-space()='Home']").click()
     driver.find_element_by_xpath("//input[@id='linkToShorten']").send_keys(grab_link)
+    time.sleep(getRandomTime())
     driver.find_element_by_xpath("//button[@id='create']").click()
     time.sleep(getRandomTime())
+
     text = driver.find_element_by_id("customLink").text
 
     time.sleep(getRandomTime())
@@ -42,6 +45,7 @@ def grabify(grab_user, grab_pass, grab_link):
 def getRandomTime():
     randTime = randint(3, 5)
     return randTime
+
 
 def email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text):
     try:
@@ -93,6 +97,7 @@ def email_setup(USERNAME, PASSWORD, sender_mail, receivers_mail, text):
 
     except Exception:
         print("Mail delivery failed.")
+
 def loop():
     try:
         text = grabify(grab_user, grab_pass, grab_link)
@@ -100,9 +105,11 @@ def loop():
     except Exception:
         text = grabify(grab_user, grab_pass, grab_link)
         email_setup(USERNAME,PASSWORD,sender_mail,receivers_mail, text)
-        
+
+
 
 try:
     loop()
 except Exception:
     loop()
+
